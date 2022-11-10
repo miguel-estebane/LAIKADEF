@@ -4,45 +4,59 @@ using UnityEngine;
 
 public class PlatformMovement : MonoBehaviour
 {
-    public GameObject[] waypoints;
-    public float platformSpeed;
-    int waypointsIndex = 0;
- 
+    CharacterController characterController;
+    Vector3 groundPos;
+    Vector3 lastGroundPos;
+    Vector3 currentPos;
 
-    // Update is called once per frame
-    void Update()
+    string grounName;
+    string lastGroundName;
+
+    bool isJump;
+
+    private void Start() 
     {
-        Moveplatform();
+        characterController = GetComponent<CharacterController>();
     }
 
-    void Moveplatform()
+    private void OnTriggerStay(Collider other) 
     {
-        if (Vector3.Distance(transform.position,waypoints[waypointsIndex].transform.position) < 0.1f)
+        if (other.tag == "Plataformamovil")
         {
-            waypointsIndex++;
-
-            if (waypointsIndex >= waypoints.Length)
+            if (!isJump)
             {
-                waypointsIndex = 0;
+                RaycastHit hit;
+                if (Physics.SphereCast(transform.position,characterController.radius, -transform.up, out hit))
+                {
+                    GameObject inGround = hit.collider.gameObject;
+                    grounName = inGround.name;
+                    groundPos = inGround.transform.position;
+
+                    if (groundPos != lastGroundPos && grounName == lastGroundName)
+                    {
+                        currentPos = Vector3.zero;
+                        currentPos += groundPos - lastGroundPos;
+                        characterController.Move(currentPos);
+                    }
+                    lastGroundName = grounName;
+                    lastGroundPos = groundPos;
+                }
             }
-        }
+            if (Input.GetKey(KeyCode.Space))
+            {
+                if (!characterController.isGrounded)
+                {
+                    currentPos = Vector3.zero;
+                    lastGroundPos = Vector3.zero;
+                    lastGroundName = null;
+                    isJump = true;
+                }
+            }
+            if (characterController.isGrounded)
+            {
+                isJump = false;
+            }
 
-        transform.position = Vector3.MoveTowards(transform.position,waypoints[waypointsIndex].transform.position,platformSpeed*Time.deltaTime);
-    }
-
-    private void OnCollisionEnter(Collision collision) 
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.transform.SetParent(transform);
         }
-    }
-    private void OnCollisionExit(Collision collision) 
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.transform.SetParent(null);
-        }        
-        
-    }
+    }   
 }

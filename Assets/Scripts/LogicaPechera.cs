@@ -22,7 +22,7 @@ public class LogicaPechera : MonoBehaviour
         if (col.tag == "Player")
         {
             logicaNPC.numDeObjetivos--;
-            logicaNPC.textoMision.text = "Obten todas las pecheras" + "/n Restantes: " + logicaNPC.numDeObjetivos;
+            logicaNPC.textoMision.text = "Obten todas las pecheras" + "Restantes: " + logicaNPC.numDeObjetivos;
             if (logicaNPC.numDeObjetivos <= 0)
             {
                 logicaNPC.textoMision.text = "Completa la misión";
