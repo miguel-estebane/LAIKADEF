@@ -36,16 +36,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Respawn.cs" />
      <Compile Include="Assets\Scripts\LogicaNPC.cs" />
+     <Compile Include="Assets\Scripts\Inicio.cs" />
+     <Compile Include="Assets\Scripts\ZonaCambio.cs" />
      <Compile Include="Assets\Scripts\Plataforma.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlatformMovement.cs" />
      <Compile Include="Assets\Scripts\Camara.cs" />
      <Compile Include="Assets\Scripts\LogicaObjetivo.cs" />
      <Compile Include="Assets\Scripts\LogicaPechera.cs" />
-     <Compile Include="Assets\Scripts\Respawn.cs" />
-     <Compile Include="Assets\Scripts\Inicio.cs" />
-     <Compile Include="Assets\Scripts\ZonaCambio.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
