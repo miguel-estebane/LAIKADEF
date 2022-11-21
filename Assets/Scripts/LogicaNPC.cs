@@ -21,7 +21,7 @@ public class LogicaNPC : MonoBehaviour
     void Start()
     {
         numDeObjetivos = objetivos.Length;
-        textoMision.text = "Obten las pecheras" + "\n Restantes:" + numDeObjetivos;
+        textoMision.text = "Obten las pecheras " + "\n restantes: " + numDeObjetivos;
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         simboloMision.SetActive(true);
         panelNPC.SetActive(false);
