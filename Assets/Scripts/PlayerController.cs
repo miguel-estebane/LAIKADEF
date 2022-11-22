@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         rotationinput.x = Input.GetAxis("Mouse X") * rotationSensibility * Time.deltaTime;
         rotationinput.y = Input.GetAxis("Mouse Y") * rotationSensibility * Time.deltaTime;
         cameraVerticalAngle = cameraVerticalAngle + rotationinput.y;
-        cameraVerticalAngle = Mathf.Clamp(cameraVerticalAngle, -70, 70);
+        cameraVerticalAngle = Mathf.Clamp(cameraVerticalAngle, -20, 20);
 
         transform.Rotate(Vector3.up*rotationinput.x);
         playerCamara.transform.localRotation = Quaternion.Euler(-cameraVerticalAngle,0f,0f);

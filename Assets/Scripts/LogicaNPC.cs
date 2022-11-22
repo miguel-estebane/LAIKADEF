@@ -30,7 +30,7 @@ public class LogicaNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.I)&& aceptarMision==false)
+        if (Input.GetKey(KeyCode.E)&& aceptarMision==false)
         {
             /* BORRAR COMENTARIOS CUANDO TENGA ANIMACION EL PERRO
             Vector3 posicionJugador = new Vector3(transform.position.x,jugador.gameObject.transform.position.y,transform.position.z);

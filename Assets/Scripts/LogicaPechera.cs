@@ -25,7 +25,7 @@ public class LogicaPechera : MonoBehaviour
             logicaNPC.textoMision.text = "Obten todas las pecheras" + "Restantes: " + logicaNPC.numDeObjetivos;
             if (logicaNPC.numDeObjetivos <= 0)
             {
-                logicaNPC.textoMision.text = "Completa la misión";
+                logicaNPC.textoMision.text = "¡HAS COMPLETADO LA MISIÓN!";
                 logicaNPC.botonDeMision.SetActive(true);
             }
             transform.parent.gameObject.SetActive(false);
